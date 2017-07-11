@@ -118,9 +118,9 @@ tinymce.PluginManager.add('variable', function(editor) {
 		}, 'childNodes');
 		// loop over all nodes that contain a string variable
 		for (var i = 0; i < nodeList.length; i++) {
-			// if (!isValid(cleanVariable(nodeList[i].nodeValue))) {
-			// 	continue;
-			// }
+			if (!isValid(cleanVariable(nodeList[i].nodeValue))) {
+				continue;
+			}
 			nodeValue = nodeList[i].nodeValue.replace(stringVariableRegex, createHTMLVariable);
 			div = editor.dom.create('div', null, nodeValue);
 			while ((node = div.lastChild)) {
@@ -190,7 +190,6 @@ tinymce.PluginManager.add('variable', function(editor) {
 	function handleContentRerender(e) {
 		// store cursor location
 		return e.format === 'raw' ? stringToHTML() : htmlToString();
-		// return htmlToString();
 		// restore cursor location
 	}
 
