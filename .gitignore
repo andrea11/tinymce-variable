@@ -1,4 +1,7 @@
 node_modules/
 npm-debug.log
 .DS_Store
-src/plugin*.js
+src/*
+
+!src/*.ts
+!src/index.js

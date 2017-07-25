@@ -1,22 +1,29 @@
 {
-  "name": "tinymce-variable",
-  "version": "0.9.1",
-  "scripts": {
-    "test": "eslint -c .eslintrc src/plugin.js",
-    "serve": "python -m SimpleHTTPServer",
-    "postinstall": "./node_modules/.bin/uglifyjs src/plugin.js -m -o src/plugin.min.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bubobox/tinymce-variable.git"
-  },
-  "description": "Make it possible to use variables in your TinyMCE editor.",
-  "main": "src/plugin.js",
-  "dependencies": {
-    "eslint": "^1.0.0-rc-1",
-    "uglifyjs": "^2.4.10"
-  },
-  "bugs": {
-    "url": "https://github.com/bubobox/tinymce-variable/issues"
-  }
+	"name": "tinymce-variable",
+	"version": "0.9.1",
+	"scripts": {
+		"test": "./node_modules/.bin/tslint -c tslint.json src/plugin.ts",
+		"serve": "python -m SimpleHTTPServer",
+		"build": "./node_modules/.bin/tsc",
+		"uglify": "./node_modules/.bin/uglifyjs src/plugin.js -m -o src/plugin.min.js",
+		"postinstall": "npm run build && npm run uglify"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/andrea11/tinymce-variable"
+	},
+	"description": "Make it possible to use variables in your TinyMCE editor.",
+	"main": "src/plugin.js",
+	"dependencies": {
+		"eslint": "^1.0.0-rc-1",
+		"uglifyjs": "^2.4.10"
+	},
+	"bugs": {
+		"url": "https://github.com/andrea11/tinymce-variable/issues"
+	},
+	"devDependencies": {
+		"@types/tinymce": "^4.5.9",
+		"tslint": "^5.5.0",
+		"typescript": "^2.4.2"
+	}
 }
